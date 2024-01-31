@@ -1,0 +1,63 @@
+#main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: auto;
+    background-image: linear-gradient(to bottom right, #3494e6, #ec6ead);
+}
+
+#main-form {
+    height: 70%;
+    width: 60%;
+    background-image: linear-gradient(-225deg, #20e2d7, #f9fea5);
+    box-shadow: 0 2px 10px rgba(245, 244, 244, 0.975);
+}
+
+.info-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#name-container {
+    height: 25%;
+    width: auto;
+}
+
+#email-container {
+    height: 25%;
+    width: auto;
+}
+
+#password-container {
+    height: 20%;
+    width: auto;
+}
+
+#password-info {
+    height: 5%;
+    width: auto;
+}
+
+#button-container {
+    height: 15%;
+    width: auto;
+}
+
+#login-info-container {
+    height: 10%;
+    width: auto;
+}
+
+#links {
+    color: #09697a;
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 600px) {
+    #main-form {
+        height: 50%;
+        width: 80%;
+    }
+}
