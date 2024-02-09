@@ -78,7 +78,6 @@ function SignUpPage() {
 
         // notify the user with error message
         notify("Something went wrong", "error");
-        // notify("Some error occured. Please try again later.", "error");
         setProgress(100);
       });
   };

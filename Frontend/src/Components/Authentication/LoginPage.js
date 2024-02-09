@@ -68,7 +68,6 @@ function LoginPage() {
 
         // notify the user with error message
         notify("Invalid Credentials", "error");
-        // notify("Some error occured", "error");
         setProgress(100);
       });
   };

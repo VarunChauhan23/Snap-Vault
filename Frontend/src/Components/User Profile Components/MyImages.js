@@ -66,9 +66,6 @@ function MyImages() {
         // notify the user with error message
         notify("Something went wrong", "error");
         setProgress(100);
-
-        // notify the user
-        // notify("Some error occured", "error");
       }
     }
   };

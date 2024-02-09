@@ -108,7 +108,6 @@ const FetchImages = () => {
     } catch (err) {
       // notify the user with error message
       notify("Something went wrong", "error");
-      // notify("Some error occurred. Please try again later.", "error");
       setProgress(100);
     }
   };

@@ -62,7 +62,6 @@ function VerifyEmailPage() {
 
             // notify the user with error message
             notify("Something went wrong", "error");
-            // notify("An error occured", "error");
             setProgress(100);
           });
       };

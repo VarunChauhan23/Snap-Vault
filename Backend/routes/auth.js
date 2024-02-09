@@ -75,7 +75,7 @@ router.post(
 
       const passwordHash = await bcrypt.hash(req.body.password, salt);
 
-      // Save user details along with the OTP and timestamp (you may want to encrypt the OTP)
+      // Save user details along with the OTP and timestamp
       const user = await User.create({
         name: req.body.name,
         email: req.body.email,
@@ -113,7 +113,6 @@ router.post(
     try {
       // Find the user in the database based on the user ID
       const user = await User.findById(userId);
-      // console.log(user)
 
       // If the user is not found or the OTP does not match, return an error
       if (!user || user.emailConfirmationOTP !== req.body.otp) {
