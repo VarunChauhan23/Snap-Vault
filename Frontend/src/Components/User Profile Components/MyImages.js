@@ -24,6 +24,8 @@ function MyImages() {
     width: 1,
   });
 
+  axios.defaults.withCredentials = true;
+
   // function called when the user click the upload image button
   const handleFileChange = async (event) => {
 
@@ -47,7 +49,7 @@ function MyImages() {
         };
 
         // API url, Base url is fetching from the .env file
-        const API_URL = `${process.env.REACT_APP_Image_Base_URL}/upload`;
+        const API_URL = `${process.env.REACT_APP_Image_Base_URL}api/image/upload`;
         setProgress(60);
 
         // API call

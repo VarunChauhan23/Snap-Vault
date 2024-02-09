@@ -37,6 +37,8 @@ function SignUpPage() {
     password: "",
   });
 
+  axios.defaults.withCredentials = true;
+
   // handleSubmit function runs when the signup form is submitted
   const handleSubmit = async (e) => {
 
@@ -57,7 +59,7 @@ function SignUpPage() {
     };
 
     // API url, Base url is fetching from the .env file
-    const API_URL = `${process.env.REACT_APP_Authentication_Base_URL}/CreateUser`;
+    const API_URL = `${process.env.REACT_APP_Authentication_Base_URL}api/auth/CreateUser`;
 
     setProgress(50);
 

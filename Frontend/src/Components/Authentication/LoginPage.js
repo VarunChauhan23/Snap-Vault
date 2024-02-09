@@ -26,6 +26,8 @@ function LoginPage() {
   // use state variable to handle visibility of password at input textfield
   const [showPassword, setShowPassword] = useState(false);
 
+  axios.defaults.withCredentials = true;
+
   // handleSubmit function runs when the login form is submitted
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,7 +45,7 @@ function LoginPage() {
     };
 
     // API url, Base url is fetching from the .env file
-    const API_URL = `${process.env.REACT_APP_Authentication_Base_URL}/login`;
+    const API_URL = `${process.env.REACT_APP_Authentication_Base_URL}api/auth/login`;
 
     setProgress(50);
 

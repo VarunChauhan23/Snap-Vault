@@ -21,6 +21,8 @@ function VerifyEmailPage() {
     // useState variable to handle the otp values
     const [otp, setOtp] = useState("");
 
+    axios.defaults.withCredentials = true;
+
     // function called when the verifyEmail form is submitted
     const handleSubmit = async (e) => {
 
@@ -42,7 +44,7 @@ function VerifyEmailPage() {
         };
     
         // API url, Base url is fetching from the .env file
-        const API_URL = `${process.env.REACT_APP_Authentication_Base_URL}/verifyEmail/${userId}`
+        const API_URL = `${process.env.REACT_APP_Authentication_Base_URL}api/auth/verifyEmail/${userId}`
 
         setProgress(50);
 
