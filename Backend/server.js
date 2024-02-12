@@ -7,12 +7,14 @@ const cors = require('cors')
 
 connectToMongo();
 
-app.use(cors({
-  origin: ['https://snap-vault.vercel.app'],
-  methods: ['GET','PUT','POST','DELETE'],
-  allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'x-client-key', 'x-client-token', 'x-client-secret', 'Authorization'],
+const corsOptions = {
+  origin: 'http://localhost:3000', //Or your frontend running URL
+  methods: 'GET,POST,DELETE',
   credentials: true,
-}));
+  optionsSuccessStatus: 204,
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.json());
 
@@ -23,5 +25,3 @@ app.use('/api/image', require('./routes/images'));
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
-
-module.exports = app;

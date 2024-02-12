@@ -46,7 +46,7 @@ const FetchImages = () => {
       };
 
       // API url, Base url is fetching from the .env file
-      const API_URL = `${process.env.REACT_APP_Image_Base_URL}api/image/fetchImage`;
+      const API_URL = `${process.env.REACT_APP_Backend_URL}api/image/fetchImage`;
 
       setProgress(60);
 
@@ -97,7 +97,7 @@ const FetchImages = () => {
         "auth-token": localStorage.getItem("authToken"),
       };
 
-      const API_URL = `${process.env.REACT_APP_Image_Base_URL}api/image/deleteImage/${imageId}`;
+      const API_URL = `${process.env.REACT_APP_Backend_URL}api/image/deleteImage/${imageId}`;
 
       setProgress(60);
 

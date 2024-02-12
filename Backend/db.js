@@ -1,9 +1,7 @@
 const mongoose = require("mongoose");
-require("dotenv").config({ path: './config.env' });
-const url = process.env.mongo_uri;
 
 async function connectToMongo() {
-  await mongoose.connect(`${url}`);
+  await mongoose.connect(`mongodb://localhost:27017/SnapVault`);
   console.log("Connected to mongo seccessfully");
 }
 

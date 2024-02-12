@@ -45,7 +45,7 @@ function LoginPage() {
     };
 
     // API url, Base url is fetching from the .env file
-    const API_URL = `${process.env.REACT_APP_Authentication_Base_URL}api/auth/login`;
+    const API_URL = `${process.env.REACT_APP_Backend_URL}api/auth/login`;
 
     setProgress(50);
 

@@ -49,14 +49,14 @@ function MyImages() {
         };
 
         // API url, Base url is fetching from the .env file
-        const API_URL = `${process.env.REACT_APP_Image_Base_URL}api/image/upload`;
+        const API_URL = `${process.env.REACT_APP_Backend_URL}api/image/upload`;
         setProgress(60);
 
         // API call
         axios.post(API_URL, formData, { headers }).then((res) => {
           setProgress(80);
 
-          // navigate to the /verifyEmail/:userId endpoint on successfull completion of request
+          // navigate to the /MyImages endpoint on successfull completion of request
           navigate("/MyImages");
           setProgress(100);
 

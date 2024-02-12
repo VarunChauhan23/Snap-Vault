@@ -13,11 +13,14 @@ import AdbIcon from "@mui/icons-material/Adb";
 import { Link, useNavigate } from "react-router-dom";
 import "./Homecomponents.css";
 import notify from "../Notify Components/Notification";
+import { useLoadingBar } from "../../context/LoadingBarContext";
 
 const pages = ["MyImages"];
 
 function Navbar() {
   const navigate = useNavigate();
+  const { setProgress } = useLoadingBar();
+
   const [anchorElNav, setAnchorElNav] = useState(null);
 
   const authToken = localStorage.getItem("authToken");
@@ -34,6 +37,7 @@ function Navbar() {
     localStorage.removeItem('authToken');
     navigate('/login');
     notify("Logout successfully", "success");
+    setProgress(100);
   }
 
   return (
@@ -138,6 +142,7 @@ function Navbar() {
                     <Link className="links" to={`/`}>
                       <Button
                         textalign="center"
+                        onClick={handleLogout}
                         sx={{
                           color: "black",
                           fontWeight: 700,
