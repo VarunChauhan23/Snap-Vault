@@ -38,7 +38,7 @@ const sendOTPByEmail = async (email, otp) => {
 };
 
 const corsOptions = {
-  origin: 'https://snap-vault.vercel.app/', //Or your frontend running URL
+  origin: 'https://snap-vault.vercel.app', //Or your frontend running URL
   methods: 'GET,POST,DELETE',
   credentials: true,
   optionsSuccessStatus: 204,
