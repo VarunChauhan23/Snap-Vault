@@ -10,8 +10,7 @@ connectToMongo().catch(console.dir);;
 const corsOptions = {
   origin: 'https://snap-vault.vercel.app', //Or your frontend running URL
   methods: 'GET,POST,DELETE',
-  credentials: true,
-  optionsSuccessStatus: 204,
+  withCredentials: false
 };
 
 app.use(cors(corsOptions));
