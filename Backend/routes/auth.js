@@ -3,7 +3,6 @@ const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
-const cors = require('cors');
 require("dotenv").config({ path: './config.env' });
 const User = require("../models/User");
 const fetchuser = require("../middleware/fetchuser");
@@ -37,15 +36,9 @@ const sendOTPByEmail = async (email, otp) => {
   await transporter.sendMail(mailOptions);
 };
 
-const corsOptions = {
-  origin: 'https://snap-vault.vercel.app', //Or your frontend running URL
-  methods: 'GET,POST,DELETE',
-  withCredentials: false
-};
-
 // Router 1 --> Create a new user using POST at /api/auth/CreateUser. No login required
 router.post(
-  "/CreateUser", cors(corsOptions),
+  "/CreateUser",
   [
     body("name", "Name is too small").isLength({ min: 3 }),
     body("email", "Please enter a valid email").isEmail(),
@@ -103,7 +96,7 @@ router.post(
 
 // Router 2 --> Verify user email via otp using POST at /api/auth/verifyEmail. No login required
 router.post(
-  "/verifyEmail/:userId", cors(corsOptions),
+  "/verifyEmail/:userId",
   [
     body("otp", "OTP must be a 6-digit number")
       .isLength({ min: 6, max: 6 })
@@ -154,7 +147,7 @@ router.post(
 );
 
 // Router 3 --> Authenticate a user using POST at /api/auth/login. No login required
-router.post("/login", cors(corsOptions), [
+router.post("/login", [
     body("email", "Please enter a valid email").isEmail(),
     body("password", "Password must be at least 8 characters long").isLength({
       min: 8,
@@ -207,7 +200,7 @@ router.post("/login", cors(corsOptions), [
 );
 
 // Router 4 --> Fetch data of loggedin user using POST at /api/auth/getUser. Login required
-router.post("/getUser", fetchuser, cors(corsOptions), async (req, res) => {
+router.post("/getUser", fetchuser, async (req, res) => {
   try {
     // Search for the user using user id. User id is get by fetchuser middleware
     const user = await User.findById(req.user.id).select("-password");

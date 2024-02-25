@@ -3,20 +3,15 @@ require("dotenv").config({ path: './config.env' });
 const connectToMongo = require('./db');
 const app = express();
 const port = process.env.app_Port
-const cors = require('cors')
+// const cors = require('cors')
 
 connectToMongo().catch(console.dir);;
 
-const corsOptions = {
-  origin: 'https://snap-vault.vercel.app', //Or your frontend running URL
-  methods: 'GET,POST,DELETE',
-  withCredentials: false
-};
+// const corsOptions = {
+//   origin: 'https://snap-vault.vercel.app'
+// };
 
-app.use(cors(corsOptions));
-
-// Handle preflight OPTIONS requests globally
-app.options('*', cors(corsOptions));
+// app.use(cors(corsOptions));
 
 app.use(express.json());
 
