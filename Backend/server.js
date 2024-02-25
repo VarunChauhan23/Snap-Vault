@@ -13,6 +13,11 @@ app.use(
   })
 );
 
+// Handle preflight OPTIONS requests
+app.options('*', (req, res) => {
+  res.status(200).end();
+});
+
 app.use(express.json());
 
 // Available routes are -->
