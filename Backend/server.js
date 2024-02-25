@@ -5,7 +5,7 @@ const app = express();
 const port = process.env.app_Port
 const cors = require('cors')
 
-connectToMongo();
+connectToMongo().catch(console.dir);;
 
 const corsOptions = {
   origin: 'https://snap-vault.netlify.app/', //Or your frontend running URL
