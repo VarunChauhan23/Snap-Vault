@@ -8,7 +8,7 @@ const cors = require('cors')
 connectToMongo().catch(console.dir);;
 
 const corsOptions = {
-  origin: '*', //Or your frontend running URL
+  origin: 'https://snap-vault.netlify.app/', //Or your frontend running URL
   methods: 'GET,POST,DELETE',
   credentials: true,
   optionsSuccessStatus: 204,

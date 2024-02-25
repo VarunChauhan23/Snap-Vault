@@ -4,9 +4,17 @@ const cloudinary = require("../utils/cloudinary");
 const upload = require("../utils/multer");
 const Image = require("../models/Image");
 const fetchuser = require("../middleware/fetchuser");
+const cors = require('cors');
+
+const corsOptions = {
+  origin: 'https://snap-vault.netlify.app/', //Or your frontend running URL
+  methods: 'GET,POST,DELETE',
+  credentials: true,
+  optionsSuccessStatus: 204,
+};
 
 // Route 1 --> Upload image using POST: at /api/image/upload. Login required
-router.post("/upload", upload.single("image"), fetchuser, async (req, res) => {
+router.post("/upload", upload.single("image"), fetchuser, cors(corsOptions), async (req, res) => {
   try {
     // Upload image to cloudinary
     const result = await cloudinary.uploader.upload(req.file.path);
@@ -29,7 +37,7 @@ router.post("/upload", upload.single("image"), fetchuser, async (req, res) => {
 });
 
 // Route 2 --> Fetch image using GET: at /api/image/fetchImage. Login required
-router.get("/fetchImage", fetchuser, async (req, res) => {
+router.get("/fetchImage", fetchuser, cors(corsOptions), async (req, res) => {
   try {
     // Find images of that user
     const image = await Image.find({ user: req.user.id });
@@ -43,7 +51,7 @@ router.get("/fetchImage", fetchuser, async (req, res) => {
 });
 
 // Route 3 --> Delete an existing image using DELETE: at /api/image/deleteImage. Login required
-router.delete("/deleteImage/:id", fetchuser, async (req, res) => {
+router.delete("/deleteImage/:id", fetchuser, cors(corsOptions), async (req, res) => {
 
   const imageId = req.params.id;
 
